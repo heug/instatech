@@ -1,0 +1,8 @@
+uwsgi:
+  image: "heug/instatech-uwsgi:${CIRCLE_SHA1}"
+nginx:
+  image: "heug/instatech-nginx:${CIRCLE_SHA1}"
+  links:
+    - uwsgi
+  expose:
+    - 8000
